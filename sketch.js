@@ -1,29 +1,59 @@
-createCanvas();
+let part1
+let part2
+let part3
+let part4
+let part5
+let hinge1
+let hinge2
+let hinge3
+let rope
+let proj
+ let screw1
+
+function setup (){
+	new Canvas(700, 700, 'fullscreen')
+
+    function environment(){
+        world.gravity.y = 9.81
+        let floor = new Sprite(350, 500, 1000, 10, STATIC)
+    }
+    
+    environment()
+
+    function trebuchet(){
+       part1 = new Sprite(350, 470, 350, 40)
+       part2 = new Sprite(350, 300, 50, 300)
+       screw1 = new GlueJoint(part1, part2)
+       part3 = new Sprite(350, 200, 450, 40)
+       let hinge1 = new HingeJoint(part2, part3)
+       hinge1.offsetA.x = 350
+       hinge1.offsetA.y = 250
+       hinge1.offsetB.x = part3.x
+       hinge1.offsetB.y = part3.y
+
+          debug = true
+    }
+
+    trebuchet()
+
+}
+
+
+
 world.gravity.y = 10;
 
-let ball = new Sprite();
-ball.x = halfWidth - 200;
-ball.y = halfHeight - 200;
-ball.diameter = 50;
 
-let groundA = new Sprite();
-groundA.x = halfWidth - 120;
-groundA.width = 200;
-groundA.rotation = 20;
-groundA.physics = STATIC;
 
-let groundB = new Sprite();
-groundB.x = halfWidth + 120;
-groundB.width = 200;
-groundB.rotation = -20;
-groundB.physics = STATIC;
 
 function update() {
-	background('skyblue');
+    background('skyblue')
 
-	textAlign(CENTER);
-	textSize(20);
-	text('click to jump!', halfWidth, halfHeight - 100);
+if ((mouse.pressed())){
 
-	if (mouse.presses()) ball.vel.y = -5;
+    new Sprite(mouse.x, mouse.y, 30, 30)
+
+    
+
+}
+
 }
